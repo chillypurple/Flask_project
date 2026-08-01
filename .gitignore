@@ -3,3 +3,7 @@ testenv/
 __pycache__/
 *.db
 *.pyc
+Penguins.jpg
+Untitled-1.jsonc
+app
+test.py
