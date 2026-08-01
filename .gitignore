@@ -2,3 +2,4 @@ myenv/
 testenv/
 __pycache__/
 *.db
+*.pyc
