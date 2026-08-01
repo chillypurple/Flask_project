@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact Manager</title>
+<link rel="stylesheet"
+href="{{url_for('static',
+filename='style.css')}}">
+</head>
+<body>
+<h1>Contact Manager</h1>
+<div class="container">
+<div class="form-box">
+
+
+<h3>Add User</h3>
+<input type="text"id="username"
+placeholder="Username">
+<button onclick="sendData()">
+SEND
+</button>
+<h3>Add Phone</h3>
+<input type="text"id="phone"
+placeholder="phone">
+
+
+</div>
+
+</div>
+<div id="message"></div>
+<div class="table-box">
+<h2>Users List:</h2>
+<div class="search-box">
+<input type="text" placeholder=
+"searchname" id="search-input">
+<button id="search-btn">SEARCH</button>
+
+<div class="table-container">
+<table border="1"
+id="usertable">
+
+<thead>
+<tbody>
+<tbody id="result">
+</tbody>
+
+<tr>
+<th>ID</th>
+<th>Username</th>
+<th>phone</th>
+<th colspan="2">A C T I O N</th>
+</tr>
+{%for user in users%}
+<tr>
+
+<td>{{user[0]}}</td>
+<td>{{user[1]}}</td>
+<td>{{user[2]}}</td>
+<td>
+<button  onclick="deleteUser(this)"
+data-id="{{user[0]}}" class="delete-btn">Delete</button>
+</td> 
+<td>
+<button onclick="editUser(this)"
+data-id="{{user[0]}}" class="edit-btn">Edit</button>
+</td>
+
+</tr>
+
+{%endfor%}
+
+
+
+
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>page {{page}} of
+{{total_pages}}</p>
+
+{%for p in range(1,total_pages+1)%}
+{{p}}
+<a href="/t?page={{p}}">{{p}}</a>
+{%endfor%}
+
+</body>
+</html>
+
+<script src="{{url_for('static',filename='contact.js')}}"></script>
+

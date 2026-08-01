@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+{%with messages=get_flashed_messages()%}
+{%if messages%}
+<div id="flash-message">
+{{messages[0]}}
+</div>
+{%endif%}
+{%endwith%}
+
+<head>
+<h1>My Contact</h1>
+<button id="addBtn">Add
+Contact</button>
+</head>
+<body>
+
+
+
+<button id="searchBtn"
+onclick="SearchContact()">Search</button>
+
+<input type="text"
+id="searchName"placeholder=
+"Search_Name">
+<hr>
+<form action="/logout"
+method="POST">
+<button type="submit">
+Logout</button>
+</form>
+<div id="result"></div>
+
+<div id="addForm"
+style="display:none;">
+<dr><dr>
+<input type="text"
+id="contactName"
+placeholder="Name">
+<input type="text"
+id="contactPhone"
+placeholder="Phone">
+<button id="saveBtn">Save</button>
+</div>
+<table border="1">
+<thead>
+<tr>
+<th>ID</th>
+<th>NAME</th>
+<th>PHONE</th>
+<th colspan="2"> Action</th>
+</tr>
+</thead>
+<tbody id="contactsTable">
+
+
+</tbody>
+  
+<style>
+div{
+    background:blue;
+    color:yellow;
+    padding:10px;
+    margin:10px;
+    border-radius:20px;
+    text-align:center;
+    
+}
+
+</style>
+<script src="/static/my_contact.js"></script>
+
+
+</body>
+</html>
+
+

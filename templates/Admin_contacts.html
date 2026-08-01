@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <h1> Contact Page For users</h1>
+        <h2>Table Contacts {{user.username}}</h2>
+</head>
+<body>
+<a
+href="{{url_for('Admin')}}"
+class="btn btn_secondary">
+Back</a>
+{%if contacts%}    
+<table border="1">
+    <thead>
+        <tr>
+<th>ID</th>
+<th>NAME</th>
+<th>PHONE</th>
+<th colspan="2"> Action</th>
+</tr>
+</thead>
+<tbody>
+{%for contact in contacts%}   
+<tr>
+    <td>{{contact.id}}</td>
+    <td>{{contact.name}}</td>
+    <td>{{contact.phone}}</td>
+
+</tr>
+{%endfor%}
+</tbody>
+</table>
+{%else%}
+<div class="alert alert-warning">این کاربر هنوز مخاطبی ثبت نکرده است
+</div>
+{%endif%}
+</body>
+
+</html>
